@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Tâches</title>
-    
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>Products</title>
 </head>
 <body>
-    <h1>Mes Tâches</h1>
+    <h1>Products</h1>
 
-    <!-- <a href="{{ route('products.create') }}" class="btn btn-primary">Nouvelle Tâche</a> -->
+    
+    <a href="{{ route('products.create') }}" class="btn btn-primary">New Product</a>
 
     @foreach($products as $product)
-        <div class="product {{ $product->completed ? 'completed' : '' }}">
-            <h3>{{ $product->title }}</h3>
-            <p>{{ $product->description }}</p>
-            <p>Statut: {{ $product->completed ? 'Terminée' : 'En cours' }}</p>
-
+        <div class="product">
+            <h3>{{ $product->name }}</h3>
+            <p>Reference: {{ $product->reference }}</p>
+            <p>Description: {{ $product->short_description }}</p>
+            <p>Price: ${{ $product->price }}</p>
+            <p>Stock: {{ $product->stock }}</p>
+            <p>Category: {{ $product->category ? $product->category->name : 'None' }}</p>
+            
             <a href="{{ route('products.edit', $product) }}" class="btn btn-success">Modifier</a>
+
 
             <form action="{{ route('products.destroy', $product) }}" method="POST" style="display: inline;">
                 @csrf
@@ -25,6 +30,7 @@
                 <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
         </div>
+        <hr>
     @endforeach
 </body>
 </html>
