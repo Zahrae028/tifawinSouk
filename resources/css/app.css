@@ -1,0 +1,40 @@
+.btn {
+            padding: 8px 15px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+          body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+.index-container{
+        border: 1px , solid;
+        padding: 1rem;
+        border-radius: 1rem;
+}
+.index-container h3{
+    font-size:1.5rem;
+}
+.index-container p{
+    font-size:1.2rem;
+}
